@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{css/register.css}"
+          href="css/register.css"
+          rel="stylesheet">
+    <title>Register</title>
+</head>
+<body>
+<div class="user">
+    <header class="user__header">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt=""/>
+        <h1 class="user__title"> Please fill in this form to create an account. </h1>
+    </header>
+
+    <form class="form" th:method="POST" th:action="@{/register}" th:object="${user}">
+
+        <div class="form__group">
+            <input class="form__input" type="text" placeholder="Name" th:field="*{name}" id="name" >
+        </div>
+
+        <div class="form__group">
+            <input class="form__input" type="text" placeholder=" Lastname" th:field="*{lastName}" id="lastname">
+        </div>
+
+        <div class="form__group">
+            <input class="form__input" type="text" placeholder="Age" th:field="*{age}" id="age" >
+        </div>
+
+        <div class="form__group">
+            <input class="form__input" type="text" placeholder="Email" th:field="*{email}" id="email" >
+        </div>
+
+        <div class="form__group">
+            <input class="form__input" type="text" placeholder="Enter Username" th:field="*{userName}"
+                   id="uname" >
+        </div>
+
+        <div class="form__group">
+            <input class="form__input" type="password" placeholder="Enter Password" th:field="*{password}"
+                   id="password" >
+        </div>
+
+        <button type="submit" class="btn">Register</button>
+    </form>
+</div>
+
+</body>
+</html>

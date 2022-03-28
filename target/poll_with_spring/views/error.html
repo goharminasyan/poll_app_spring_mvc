@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{css/error.css}"
+          href="css/error.css"
+          rel="stylesheet">
+    <title>Oops!!</title>
+</head>
+<body>
+<img src="https://cdni.iconscout.com/illustration/premium/thumb/opps-4344463-3613891.png">
+
+<div class="error">
+        <span th:if="${error}!=null">
+                <p th:text="${error}"></p>
+        <form action="/poll" method="get">
+            <input class="submit" type="submit" value="Polls"/>
+        </form>
+     </span>
+</div>
+</body>
+</html>

@@ -1,0 +1,123 @@
+
+* {
+    margin: 0;
+    padding: 2;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto Light";
+    font-size: 14px;
+    background-size: 200% 100% !important;
+    animation: move 10s ease infinite;
+    transform: translate3d(0, 0, 0);
+    background: linear-gradient(45deg, #cdacf3 10%, #A2C7E5 90%);
+    height: 100vh
+}
+
+.user {
+    width: 90%;
+    max-width: 400px;
+    max-height: 350px;
+    margin: 8vh auto;
+}
+
+.user__header {
+    text-align: center;
+    opacity: 0;
+    transform: translate3d(0, 500px, 0);
+    animation: arrive 500ms ease-in-out 0.7s forwards;
+}
+
+.user__title {
+    font-size: 25px;
+    margin-bottom: 30px;
+    font-weight: 600;
+    color: white;
+}
+
+.form {
+    width: 500px;
+    padding: 40px;
+    border-radius: 8px;
+    background-color: white;
+    font-family: "Roboto Light";
+    box-shadow: 5px 5px 10px rgb(0,0,0,0.3);
+}
+
+.form--no {
+    animation: NO 1s ease-in-out;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+.form__input {
+    width: 100%;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 0px;
+    padding: 25px 0px;
+    text-indent: 16px;
+    font-family: "Roboto Light";
+    font-size: 20px;
+    letter-spacing: 2px;
+    background-color: #e1d3f3;
+}
+
+.btn {
+    font-size: 25px;
+    display: block;
+    width: 100%;
+    padding: 20px;
+    font-family: "Roboto Light";
+    -webkit-appearance: none;
+    outline: 0;
+    border: 0;
+    color: white;
+    background: #5aaeea;
+    transition: 0.3s;
+}
+
+
+@keyframes NO {
+    from, to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    10%, 30%, 50%, 70%, 90% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
+    }
+
+    20%, 40%, 60%, 80% {
+        -webkit-transform: translate3d(10px, 0, 0);
+        transform: translate3d(10px, 0, 0);
+    }
+}
+
+@keyframes arrive {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 50px, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes move {
+    0% {
+        background-position: 0 0
+    }
+
+    50% {
+        background-position: 100% 0
+    }
+
+    100% {
+        background-position: 0 0
+    }
+}
