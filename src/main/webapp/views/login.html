@@ -14,12 +14,12 @@
 <main>
     <form action="/login" method="post" class="form_class">
         <div class="form_div">
-                <div th:if="${logout_error}!= null" style="color: #a81bb2; font-size: 20px">
-                    <p th:text="${logout_error}"> </p>
+                <div th:if="${logout}!= null" style="color: #a81bb2; font-size: 20px">
+                    <p th:text="${logout}"> </p>
             </div>
 
-            <div th:if="${error}!=null" style="color: red; font-size: 20px">
-                    <p th:text="${error}"></p>
+            <div th:if="${errorMassage}!=null" style="color: red; font-size: 20px">
+                    <p th:text="${errorMassage}"></p>
             </div>
 
             <div th:if="${registerMessage}!=null" style="color: #a81bb2; font-size: 20px">
@@ -41,7 +41,7 @@
             <br>
     </form>
 
-    <form action="/register" method="post" >
+    <form action="/register" method="get" >
         <input type="submit" class="creat" value="SIGN UP"/>
     </form>
     </div>

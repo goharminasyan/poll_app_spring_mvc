@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -10,7 +10,7 @@
 <div th:each="poll : ${polls}">
     <img th:src="${poll.getImg_url()}" alt="img"  style="width: 100%" , height="150">
     <a  th:href="@{/questions/{id}(id=${poll.getId()})}" th:text="${poll.getName()}"  class="title">poll</a>
-    <p th:class="description" th:text="${poll.getDescription()}">value </p>
+    <p class="description" th:text="${poll.getDescription()}">value </p>
 </div>
 </body>
 </html>

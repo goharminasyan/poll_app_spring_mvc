@@ -18,13 +18,13 @@ import java.util.List;
 @Controller
 public class ResultsController {
     List<Long> list = new ArrayList();
-    AnswerDAO answer;
+    AnswerDAO answerDAO;
     ResultDAO resultDAO;
     long sum = 0;
 
     @Autowired
-    public ResultsController(AnswerDAO answer, ResultDAO resultDAO) {
-        this.answer = answer;
+    public ResultsController(AnswerDAO answerDAO, ResultDAO resultDAO) {
+        this.answerDAO = answerDAO;
         this.resultDAO = resultDAO;
     }
 
