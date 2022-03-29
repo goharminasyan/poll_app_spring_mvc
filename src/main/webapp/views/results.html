@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/results.css">
+    <title>Results</title>
+</head>
+<body>
+<h2 class="title"> Poll result</h2>
+<img src="https://instituteofpsychology.ie/wp-content/uploads/2021/01/Institute-of-Psychology-Ireland-IoP-Educational-Psychological-Assessment.png"
+     alt="Psychology">
+
+<!--<c:if var="poll_error" test="${ poll_error != null}">-->
+<!--    <p style="font-size: 25px; color: #a81bb2; margin-top: -410px;-->
+<!--    padding-left: 700px; display: inline-block;-->
+<!--    align-items: center">${"Это ваш старый резултат."} <br>-->
+<!--        ${"Вы можете снова принять участие в опросе через неделю"}</p>-->
+<!--</c:if>-->
+<p class="description"> Оказывается у вас -<p th:text="${weight.getExplanation()}"> <p/> </p>
+
+<form action="/logout" method="post">
+    <input class="creat" type="submit" value="Log out"/>
+</form>
+</body>
+</html>

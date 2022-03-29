@@ -1,32 +1,28 @@
 <!DOCTYPE html>
-<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
 <head>
     <meta charset="UTF-8">
-    <link th:href="@{css/question_answer.css}"
-          href="css/question_answer.css"
-          rel="stylesheet">
+    <link th:href="css/question_answer.css" href="css/question_answer.css" rel="stylesheet" >
     <title>Questions</title>
 </head>
 <body>
 <form action="/results" method="get">
-
     <div th:each="question : ${questions}">
         <input type="hidden" name="questionId" th:value="${question.id}">
 
-        <p class="question"
-           th:text="${question.getText()}">
-        </p>
+        <p class="question" th:text="${question.getText()}"></p>
 
         <div th:each="answer : ${answers}">
             <div th:if="${question.getId()} == ${answer.getQuestion_id()}">
-                <input type="radio" th:name="marked + ${question.id}" th:value="${answer.getWeight()}">
-                <p class="answer" th:text="${answer.getText()}"> </p>
+
+                    <input class="answer" type="radio" th:name="marked+${question.id}" th:value="${answer.getWeight()}">
+                <p class="answer" th:text="${answer.getText()} "></p>
+
             </div>
         </div>
     </div>
-
     <input type="submit" name="done" class="creat" value="Done"/>
-</form>
 
+</form>
 </body>
 </html>

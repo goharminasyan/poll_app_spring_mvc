@@ -1,34 +1,30 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link th:href="@{css/home.css}"
-          href="css/home.css"
-          rel="stylesheet">
+    <link rel="stylesheet" href="css/home.css">
     <title>Home</title>
 </head>
 <body class="user__header">
 
-<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt=""/>
+<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt="" />
 
-<div class="error">
-    <!--    <c:if var="poll_error" test="${ poll_error != null}">-->
-    <!--        <p style="font-size: 30px; color: #a81bb2" >${"You can take the test again in less than a week!"}</p>-->
-    <!--    </c:if>-->
+<div class="error"  >
+<!--    <c:if var="poll_error" test="${ poll_error != null}">-->
+<!--        <p style="font-size: 30px; color: #a81bb2" >${"You can take the test again in less than a week!"}</p>-->
+<!--    </c:if>-->
 </div>
 
-<div class="user__title">
-    <h2>User name: <h2 th:text="${user.getName()}"> name</h2></h2>
-    <h2>User lastname: <h2 th:text="${user.getLastName()}">lasname</h2></h2>
-    <h2>User age: <h2 th:text="${user.getAge()}"> age</h2></h2>
-    <h2> Last time when you participated in the poll:<h2 th:text="${user.getResult_date()}">result_date</h2></h2>
-</div>
+<h2 class="user__title">User name:<h2 th:text="${user.getName()}"> </h2></h2>
+<h2 class="user__title">User Lastname:<h2 th:text="${user.getLastName()}"> </h2></h2>
+<h2 class="user__title">User age:<h2 th:text="${user.getAge()}"> </h2></h2>
+<!--<%&#45;&#45;<h2 class="user__title">Last time when you participated in the poll: ${sessionScope.user.result_date}</h2>&#45;&#45;%>-->
 
-<form action="/poll" method="get">
-    <input class="submit" type="submit" value="Polls"/>
+<form action="/poll" method="get"  >
+    <input class="submit" type="submit"  value="Polls" />
 </form>
-<form action="/logout" method="post">
-    <input class="submit" type="submit" value="Log out"/>
+<form action="/logout" method="post"  >
+    <input class="submit" type="submit"  value="Log out" />
 </form>
 
 </body>

@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link th:href="@{css/results.css}"
-          href="css/results.css"
-          rel="stylesheet">
+    <link rel="stylesheet" href="css/results.css">
     <title>Results</title>
 </head>
 <body>
@@ -18,11 +16,7 @@
 <!--    align-items: center">${"Это ваш старый резултат."} <br>-->
 <!--        ${"Вы можете снова принять участие в опросе через неделю"}</p>-->
 <!--</c:if>-->
-<!--<p class="description"> Оказывается у вас - -->
-<!--    value="${weight.getPoll_result()} ${poll_result.getPoll_result()}"/>-->
-<!--</p>-->
-
-<p class="description" th:text="${weight.getExplanation()}"></p>
+<p class="description"> Оказывается у вас -<p th:text="${weight.getExplanation()}"> <p/> </p>
 
 <form action="/logout" method="post">
     <input class="creat" type="submit" value="Log out"/>

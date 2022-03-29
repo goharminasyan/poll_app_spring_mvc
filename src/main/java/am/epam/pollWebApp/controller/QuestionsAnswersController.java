@@ -43,6 +43,4 @@ public class QuestionsAnswersController {
         model.addAttribute("answers",answers );
         return "question_answers";
     }
-
-
 }
