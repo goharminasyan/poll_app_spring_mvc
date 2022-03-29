@@ -16,7 +16,7 @@
 <!--    align-items: center">${"Это ваш старый резултат."} <br>-->
 <!--        ${"Вы можете снова принять участие в опросе через неделю"}</p>-->
 <!--</c:if>-->
-<p class="description"> Оказывается у вас -<p th:text="${weight.getExplanation()}"> <p/> </p>
+<p class="description"> Оказывается у вас -<p class="description" th:text="${weight.getExplanation()}"> <p/> </p>
 
 <form action="/logout" method="post">
     <input class="creat" type="submit" value="Log out"/>
