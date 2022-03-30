@@ -3,15 +3,12 @@ package am.epam.pollWebApp.controller;
 import am.epam.pollWebApp.dao.UserDAO;
 import am.epam.pollWebApp.model.Users;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
+@SessionAttributes("user")
 public class UsersLoginController {
 
     private UserDAO userDAO;
@@ -27,7 +24,6 @@ public class UsersLoginController {
     }
 
     @PostMapping("/login")
-    @Scope(WebApplicationContext.SCOPE_SESSION)
     public String validDate(@RequestParam(value = "email", required = false) String email,
                             @RequestParam(value = "password", required = false) String password,
                             Model model) {

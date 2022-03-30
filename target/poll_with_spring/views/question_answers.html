@@ -10,13 +10,13 @@
     <div th:each="question : ${questions}">
         <input type="hidden" name="questionId" th:value="${question.getId()}">
 
-        <p class="question" th:text="${question.getText()}"></p>
+        <p class="question" th:text="${question.getId()} + '. ' + ${question.getText()}"></p>
 
         <div th:each="answer : ${answers}">
             <div th:if="${question.getId()} == ${answer.getQuestion_id()}">
 
-                <input class="answer" type="radio" th:name="marked+${question.id}" th:value="${answer.getWeight()}">
-                <p class="answer" th:text="${answer.getText()} "></p>
+                <input class="answer" type="radio" th:name="marked+${question.id}" th:value="${answer.getWeight()}"
+                          th:text="${answer.getText()}" >
 
             </div>
         </div>

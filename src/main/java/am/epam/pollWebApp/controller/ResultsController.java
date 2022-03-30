@@ -2,34 +2,39 @@ package am.epam.pollWebApp.controller;
 
 import am.epam.pollWebApp.dao.AnswerDAO;
 import am.epam.pollWebApp.dao.ResultDAO;
+import am.epam.pollWebApp.dao.UserDAO;
 import am.epam.pollWebApp.model.Result;
+import am.epam.pollWebApp.model.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller
+@SessionAttributes("user")
 public class ResultsController {
     List<Long> list = new ArrayList();
     AnswerDAO answerDAO;
     ResultDAO resultDAO;
+    UserDAO userDAO;
     long sum = 0;
 
     @Autowired
-    public ResultsController(AnswerDAO answerDAO, ResultDAO resultDAO) {
+    public ResultsController(AnswerDAO answerDAO, ResultDAO resultDAO, UserDAO userDAO) {
         this.answerDAO = answerDAO;
         this.resultDAO = resultDAO;
+        this.userDAO = userDAO;
     }
 
     @GetMapping("/results")
-    public String results(HttpServletRequest req, Model model) {
+    public String results(@ModelAttribute("user") Users user, HttpServletRequest req, Model model) {
 
         String[] questionIds = req.getParameterValues("questionId");
         for (String questionId : questionIds) {
@@ -40,11 +45,24 @@ public class ResultsController {
             } else {
                 long value = Long.parseLong(parameter);
                 sum += value;
-
             }
         }
-        Result byScore = resultDAO.findByScore(1, sum);
-       model.addAttribute("weight", byScore);
+
+        String email = user.getEmail();
+        String password = user.getPassword();
+        int id = user.getId();
+        Result expByScore = resultDAO.findByScore(1, sum);
+
+        Date now = Date.valueOf(LocalDate.now());
+
+        userDAO.getByEmailAndPass(email, password);
+        userDAO.updateDate(id, now);
+
+        String explanation = expByScore.getExplanation();
+        userDAO.updateResult(id, explanation);
+        Users userResult = userDAO.pollResultById(id);
+
+        model.addAttribute("userResult", userResult);
         return "results";
     }
 }

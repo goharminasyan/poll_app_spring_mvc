@@ -1,7 +1,6 @@
 package am.epam.pollWebApp.controller;
 
 import am.epam.pollWebApp.dao.UserDAO;
-import am.epam.pollWebApp.dao.UserDAOImpl;
 import am.epam.pollWebApp.model.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,8 +18,6 @@ public class UsersRegisterController {
         this.userDAO = userDAO;
     }
 
-
-
     @GetMapping("/register")
     public String openRegisterPage(Model model) {
         model.addAttribute("user", new Users());
@@ -33,5 +30,4 @@ public class UsersRegisterController {
         model.addAttribute("registerMessage", "You have successfully registered!");
         return "/login";
     }
-
 }

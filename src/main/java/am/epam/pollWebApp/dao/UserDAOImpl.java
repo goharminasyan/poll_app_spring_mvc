@@ -72,7 +72,7 @@ public class UserDAOImpl implements UserDAO<Users> {
     public Users getByEmailAndPass(String email, String pass) {
         Users user = new Users();
         try {
-            String query = "SELECT id, name, lastName, email, age, result_date FROM user WHERE email=? and password= ?";
+            String query = "SELECT * FROM user WHERE email=? and password= ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, email);
             preparedStatement.setString(2, pass);
@@ -81,9 +81,12 @@ public class UserDAOImpl implements UserDAO<Users> {
                 user.setId(resultSet.getInt("id"));
                 user.setName(resultSet.getString("name"));
                 user.setLastName(resultSet.getString("lastname"));
-                user.setEmail(resultSet.getString("email"));
                 user.setAge(resultSet.getInt("age"));
+                user.setUserName(resultSet.getString("username"));
+                user.setEmail(resultSet.getString("email"));
+                user.setPassword(resultSet.getString("password"));
                 user.setResult_date(resultSet.getDate("result_date"));
+                user.setPoll_result(resultSet.getString("poll_result"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -117,7 +120,7 @@ public class UserDAOImpl implements UserDAO<Users> {
         }
     }
     @Override
-    public Users findById(long id) {
+    public Users pollResultById(long id) {
         Users user = new Users();
         try {
             String query = "SELECT poll_result FROM user WHERE id=?";

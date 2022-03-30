@@ -10,7 +10,7 @@ public interface UserDAO<T> {
 
     T create(T obj);
 
-    Users findById(long id);
+    Users pollResultById(long id);
 
     boolean existEmailAndPass(String email, String pass);
 

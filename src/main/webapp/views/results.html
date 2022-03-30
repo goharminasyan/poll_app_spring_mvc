@@ -10,13 +10,14 @@
 <img src="https://instituteofpsychology.ie/wp-content/uploads/2021/01/Institute-of-Psychology-Ireland-IoP-Educational-Psychological-Assessment.png"
      alt="Psychology">
 
-<!--<c:if var="poll_error" test="${ poll_error != null}">-->
-<!--    <p style="font-size: 25px; color: #a81bb2; margin-top: -410px;-->
-<!--    padding-left: 700px; display: inline-block;-->
-<!--    align-items: center">${"Это ваш старый резултат."} <br>-->
-<!--        ${"Вы можете снова принять участие в опросе через неделю"}</p>-->
-<!--</c:if>-->
-<p class="description"> Оказывается у вас -<p class="description" th:text="${weight.getExplanation()}"> <p/> </p>
+<div th:if="${poll_error} != null">
+    <p style="font-size: 25px; color: #861aea; margin-top: -410px;
+    padding-left: 700px; display: inline-block;
+    align-items: center" th:text="${poll_error} + ${poll_result.getPoll_result()}"> <br>
+       </p>
+</div>
+
+ <p class="description" th:text="'Result-' + ${userResult.getPoll_result()}"> <p/>
 
 <form action="/logout" method="post">
     <input class="creat" type="submit" value="Log out"/>

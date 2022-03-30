@@ -21,6 +21,7 @@
     <bean class="org.thymeleaf.spring5.view.ThymeleafViewResolver">
         <property name="templateEngine" ref="templateEngine"/>
         <property name="order" value="1"/>
+        <property name="characterEncoding" value="UTF-8"/>
         <property name="viewNames" value="*"/>
     </bean>
 </beans>
