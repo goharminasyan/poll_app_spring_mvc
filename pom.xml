@@ -20,6 +20,8 @@
     <spring.version>5.3.16</spring.version>
   </properties>
 
+
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -55,6 +57,7 @@
       <version>${spring.version}</version>
     </dependency>
 
+
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
@@ -75,6 +78,21 @@
       <artifactId>mysql-connector-java</artifactId>
       <version>8.0.25</version>
     </dependency>
+
+    <!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+    <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>1.4</version>
+    </dependency>
+
+    <!-- validation -->
+    <dependency>
+      <groupId>org.hibernate.validator</groupId>
+      <artifactId>hibernate-validator</artifactId>
+      <version>6.1.6.Final</version>
+    </dependency>
+
 
   </dependencies>
 
@@ -113,15 +131,15 @@
         </plugin>
       </plugins>
     </pluginManagement>
-      <plugins>
-          <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-compiler-plugin</artifactId>
-              <configuration>
-                  <source>8</source>
-                  <target>8</target>
-              </configuration>
-          </plugin>
-      </plugins>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>8</source>
+          <target>8</target>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 </project>

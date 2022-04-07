@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/results.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all"
+          th:href="@{../static/css/results.css}" href="../static/css/results.css">
     <title>Results</title>
 </head>
 <body>
-<h2 class="title"> Poll result</h2>
+<h2 class="title" th:text="#{pollResult}" > Poll result</h2>
 <img src="https://instituteofpsychology.ie/wp-content/uploads/2021/01/Institute-of-Psychology-Ireland-IoP-Educational-Psychological-Assessment.png"
      alt="Psychology">
 
 <div th:if="${poll_error} != null">
-    <p style="font-size: 25px; color: #861aea; margin-top: -410px;
-    padding-left: 700px; display: inline-block;
-    align-items: center" th:text="${poll_error} + ${poll_result.getPoll_result()}"> <br>
+    <p class="description" th:text="${poll_error} + ${poll_result.getPoll_result()}"> <br>
        </p>
+    <form action="/logout" method="post">
+        <input class="creat" type="submit" th:value="#{logout}"/>
+    </form>
 </div>
 
  <p class="description" th:text="'Result-' + ${userResult.getPoll_result()}"> <p/>
 
 <form action="/logout" method="post">
-    <input class="creat" type="submit" value="Log out"/>
+    <input class="creat" type="submit" th:value="#{logout}"/>
 </form>
 </body>
 </html>

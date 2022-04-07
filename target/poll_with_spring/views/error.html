@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/error.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all"
+          th:href="@{../static/css/error.css}" href="../static/css/error.css">
     <title>Oops!!</title>
 </head>
 <body>
 <img src="https://cdni.iconscout.com/illustration/premium/thumb/opps-4344463-3613891.png">
+<!--<p th:text="${url}" th:if="${url ne null}" class="alert alert-primary"></p>-->
+<!--<p th:text="${exception.message}" th:if="${exception.message ne null}" class="alert alert-primary"></p>-->
 
 <div class="error"  >
     <div th:if="${error}!= null">

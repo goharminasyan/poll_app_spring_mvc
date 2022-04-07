@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/register.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all"
+          th:href="@{../static/css/register.css}" href="../static/css/register.css">
     <title>Register</title>
 </head>
 <body>
@@ -10,35 +11,41 @@
 
     <header class="user__header">
         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt="" />
-        <h1 class="user__title" > Please fill in this form to create an account. </h1>
+        <h1 class="user__title" th:text="#{title}"> Please fill in this form to create an account. </h1>
     </header>
 
     <form   class="form" th:method="POST" th:action="@{/register}" th:object="${user}">
         <div class="form__group">
-            <input class="form__input"  type="text" placeholder="Name" th:field="*{name}" id="name" required>
+            <div style="background-color: #c19cf1" th:if="${#fields.hasErrors('name')}" th:text="#{validation}"></div>
+            <input class="form__input"  type="text" th:placeholder="#{name}" th:field="*{name}" id="name" required>
         </div>
 
         <div class="form__group">
-            <input class="form__input" type="text" placeholder=" Lastname" th:field="*{lastName}" id="lastname" >
+            <div style="background-color: #c19cf1" th:if="${#fields.hasErrors('lastName')}" th:text="#{validation}"></div>
+            <input class="form__input" type="text" th:placeholder="#{lastName}" th:field="*{lastName}" id="lastname" >
         </div>
 
         <div class="form__group">
-            <input class="form__input"  type="text" placeholder="Age" th:field="*{age}" id="age">
+            <div  style="background-color: #c19cf1" th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></div>
+            <input class="form__input"  type="number" th:placeholder="#{age}" th:field="*{age}" id="age">
         </div>
 
         <div class="form__group">
-            <input class="form__input"  type="text" placeholder="Email" th:field="*{email}" id="email">
+            <div style="background-color: #c19cf1"  th:if="${#fields.hasErrors('email')}" th:text="#{email.validation}"></div>
+            <input class="form__input"  type="email" th:placeholder="#{email}" th:field="*{email}" id="email">
         </div>
 
         <div class="form__group">
-            <input class="form__input"  type="text" placeholder="Enter Username" th:field="*{userName}" id="uname">
+            <div style="background-color: #c19cf1" th:if="${#fields.hasErrors('userName')}" th:text="#{validation}"></div>
+            <input class="form__input"  type="text" th:placeholder="#{userName}" th:field="*{userName}" id="uname">
         </div>
 
         <div class="form__group">
-            <input class="form__input"  type="password" placeholder="Enter Password" th:field="*{password}" id="password">
+            <div style="background-color: #c19cf1" th:if="${#fields.hasErrors('password')}" th:text="#{validation}"></div>
+            <input class="form__input"  type="password" th:placeholder="#{pass}" th:field="*{password}" id="password">
         </div>
 
-        <button type="submit" class="btn" >Register</button>
+        <button type="submit" class="btn" th:text="#{register}" >Register</button>
     </form>
 </div>
 

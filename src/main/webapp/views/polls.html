@@ -2,10 +2,10 @@
 <html lang="ru"  xmlns:th="http://www.thymeleaf.org" >
 
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" type="text/css" media="all"
-         href="css/poll.css"  th:href="@{css/poll.css}">
-    <title>Poll Selection</title>
+          href="../static/css/poll.css" th:href="@{../static/css/poll.css}">
+    <title th:text="#{pollSelection}">Poll Selection</title>
 </head>
 <body>
 <div th:each="poll : ${polls}">

@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/login.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all"
+          th:href="@{../static/css/login.css}" href="../static/css/login.css">
     <title>Welcome to our page</title>
 </head>
 <body>
 
 <header>
-    <h1>Welcome to Poll App </h1>
+    <h1 th:text="#{greeting}">Welcome to Poll App </h1>
+
 </header>
 
 <main>
     <form action="/login" method="post" class="form_class">
         <div class="form_div">
-
                 <div th:if="${logout}!= null" style="color: #a81bb2; font-size: 20px">
                     <p th:text="${logout}"> </p>
             </div>
@@ -28,24 +29,31 @@
             </div>
 
             <br>
-            <label><b> Login </b></label>
-            <input class="field_class" type="text" placeholder="Enter email" th:name="email">
+            <label><b th:text="#{login}">  </b></label>
+            <input class="field_class" type="text" placeholder="Enter email" name="email">
             <br>
-            <label><b>Password</b></label>
+            <label><b th:text="#{pass}">Password</b></label>
             <input class="field_class" type="password" placeholder="Enter Password" th:name="password">
             <br>
             <label>
-                <input type="checkbox" checked="checked" name="remember"> Remember me
+                <input type="checkbox" checked="checked" name="remember" th:text="#{remember}">
             </label>
-            <input class="submit_class" type="submit" value="Log In"/>
+            <input class="submit_class" type="submit" th:value="#{login_button}"/>
 
             <br>
     </form>
 
     <form action="/register" method="get" >
-        <input type="submit" class="creat" value="SIGN UP"/>
+        <input type="submit" class="creat" th:value="#{sign_up}"/>
     </form>
+    <div class="lang">
+        <span th:text="#{lang.change}+' --> '"></span>
+        <a href="/login?lang=en-US" th:text="#{language.en}+', '"></a>
+        <a href="/login?lang=hy-AM" th:text="#{language.arm}+', '"></a>
+        <a href="/login?lang=ru-RU" th:text="#{language.ru}"></a>
     </div>
+    </div>
+
 
 </main>
 </body>

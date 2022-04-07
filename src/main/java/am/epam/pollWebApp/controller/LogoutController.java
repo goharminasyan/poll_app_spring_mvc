@@ -14,6 +14,6 @@ public class LogoutController {
     public String logout (Model model, SessionStatus sessionStatus){
         sessionStatus.isComplete();
         model.addAttribute("logout", "You are successfully logged out!" );
-        return "login";
+        return "/login";
     }
 }

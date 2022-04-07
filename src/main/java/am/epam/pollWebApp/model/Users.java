@@ -1,17 +1,31 @@
 package am.epam.pollWebApp.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import java.sql.Date;
 
 public class Users {
     private int id;
-    private String name;
+    @NotBlank
     private String lastName;
+    @NotBlank
+    private String name;
+    @Min(value =0, message = "The age must not be negative")
+    @Max(value = 110, message = "Too darn old")
     private int age;
+    @NotBlank
     private String userName;
+    @NotBlank(message = "Email is not be valid")
+    @Email(message = "Email is not be valid")
     private String email;
+    @NotBlank
     private String password;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date result_date;
     private String poll_result;
 

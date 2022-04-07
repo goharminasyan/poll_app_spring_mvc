@@ -3,15 +3,16 @@
     margin: 0px;
 }
 
-main{
-display: flex;
-align-items: center;
-justify-content: center;
-height: 95vh;
-width: 100%;
-background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Mountains-1412683.svg/1280px-Mountains-1412683.svg.png) no-repeat center center;
-background-size: cover;
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 95vh;
+    width: 100%;
+    background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Mountains-1412683.svg/1280px-Mountains-1412683.svg.png) no-repeat center center;
+    background-size: cover;
 }
+
 header {
     background-color: black;
     color: white;
@@ -19,11 +20,12 @@ header {
     align-items: center;
     justify-content: center;
     height: 10vh;
-    box-shadow: 5px 5px 10px rgb(0,0,0,0.3);
+    box-shadow: 5px 5px 10px rgb(0, 0, 0, 0.3);
     flex-direction: row;
 }
+
 h1 {
-    letter-spacing: 1.5vw;
+    letter-spacing: 0.2vw;
     font-family: 'system-ui';
     text-transform: uppercase;
     text-align: center;
@@ -35,23 +37,28 @@ h1 {
     border-radius: 8px;
     background-color: white;
     font-family: 'system-ui';
-    box-shadow: 5px 5px 10px rgb(0,0,0,0.3);
+    box-shadow: 5px 5px 10px rgb(0, 0, 0, 0.3);
 }
+
 .form_div {
     text-transform: uppercase;
 }
+
 .form_div > label {
     letter-spacing: 3px;
     font-size: 1rem;
 }
+
 .info_div {
     font-size: 10px;
     text-align: center;
     margin: 190px;
 }
+
 .info_div {
     letter-spacing: 1px;
 }
+
 .field_class {
     width: 100%;
     border-radius: 6px;
@@ -65,7 +72,8 @@ h1 {
     font-size: 0.9rem;
     letter-spacing: 2px;
 }
-.creat{
+
+.creat {
     font-size: 15px;
     border-style: none;
     border-radius: 5px;
@@ -77,9 +85,23 @@ h1 {
     display: block;
     margin: auto;
     margin-top: 10px;
-    box-shadow: 2px 2px 5px rgb(0,0,0,0.2);
+    box-shadow: 2px 2px 5px rgb(0, 0, 0, 0.2);
     cursor: pointer;
 }
+
+.lang {
+    text-align: center;
+    font-size: 15px;
+    padding: 8px 20px;
+    font-family: 'system-ui';
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
 .submit_class {
     font-size: 15px;
     border-style: none;
@@ -92,9 +114,10 @@ h1 {
     display: block;
     margin: auto;
     margin-top: 10px;
-    box-shadow: 2px 2px 5px rgb(0,0,0,0.2);
+    box-shadow: 2px 2px 5px rgb(0, 0, 0, 0.2);
     cursor: pointer;
 }
+
 footer {
     height: 10vh;
     background-color: black;
@@ -102,13 +125,15 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: -5px -5px 10px rgb(0,0,0,0.3);
+    box-shadow: -5px -5px 10px rgb(0, 0, 0, 0.3);
 }
+
 footer > p {
     text-align: center;
     font-family: 'system-ui';
     letter-spacing: 3px;
 }
+
 footer > p > a {
     text-decoration: none;
     color: white;

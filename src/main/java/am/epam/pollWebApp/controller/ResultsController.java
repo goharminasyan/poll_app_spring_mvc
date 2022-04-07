@@ -13,9 +13,13 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 @Controller
 @SessionAttributes("user")
@@ -34,7 +38,7 @@ public class ResultsController {
     }
 
     @GetMapping("/results")
-    public String results(@ModelAttribute("user") Users user, HttpServletRequest req, Model model) {
+    public String results(@ModelAttribute("user") Users user, HttpServletRequest req, Model model) throws ParseException {
 
         String[] questionIds = req.getParameterValues("questionId");
         for (String questionId : questionIds) {
@@ -64,5 +68,6 @@ public class ResultsController {
 
         model.addAttribute("userResult", userResult);
         return "results";
+
     }
 }
