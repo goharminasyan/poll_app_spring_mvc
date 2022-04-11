@@ -16,18 +16,18 @@ created JDBC connection.
 
 The application has 7 pages:
 
-Login page 
+1.Login page 
 ![image](https://user-images.githubusercontent.com/93138699/162825254-dc105796-36e0-4657-bf0d-1b6ce293a104.png)
-Registration page
+2.Registration page
 ![image](https://user-images.githubusercontent.com/93138699/162825367-7b7fcbbd-0309-435b-b8bf-651552187d26.png)
-Home page where information about user and poll button
+3.Home page where information about user and poll button
 
-List of polls (tests)
+4.List of polls (tests)
 ![image](https://user-images.githubusercontent.com/93138699/162825659-6b8285c2-8c82-424c-8d14-21eadf3d6247.png)
 
-Page taking a poll
-Results
+5.Page taking a poll
+6.Results
 ![image](https://user-images.githubusercontent.com/93138699/162825821-a6815c1e-dcab-4d54-9c87-c1517fba4722.png)
-Error page
+7.Error page
 ![image](https://user-images.githubusercontent.com/93138699/162828444-e54e5588-f97d-476a-80b8-809bf3627e94.png)
 
