@@ -41,9 +41,9 @@ public class QuestionDAOImpl implements QuestionDAO {
         try {
             String query = "SELECT * FROM question WHERE quest_id=?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setLong(1,id);
+            preparedStatement.setLong(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 question.setText(resultSet.getString("text"));
             }
         } catch (SQLException e) {

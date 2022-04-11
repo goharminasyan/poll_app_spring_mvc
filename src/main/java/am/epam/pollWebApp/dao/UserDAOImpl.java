@@ -1,4 +1,5 @@
 package am.epam.pollWebApp.dao;
+
 import am.epam.pollWebApp.connection.DBConnectionProvider;
 import am.epam.pollWebApp.model.Users;
 import org.springframework.stereotype.Component;
@@ -61,7 +62,7 @@ public class UserDAOImpl implements UserDAO<Users> {
             preparedStatement.setString(1, email);
             preparedStatement.setString(2, pass);
             ResultSet resultSet = preparedStatement.executeQuery();
-           exist=resultSet.next();
+            exist = resultSet.next();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -119,6 +120,7 @@ public class UserDAOImpl implements UserDAO<Users> {
             throw new RuntimeException("Something is went wrong in update result method");
         }
     }
+
     @Override
     public Users pollResultById(long id) {
         Users user = new Users();

@@ -76,7 +76,6 @@ public class ResultDAOImpl implements ResultDAO {
         } catch (SQLException e) {
             throw new RuntimeException("Something is went wrong in getByPollId method");
         }
-
         return resultList;
     }
 
@@ -99,12 +98,9 @@ public class ResultDAOImpl implements ResultDAO {
                     return result;
                 }
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
     }
-
 }
-

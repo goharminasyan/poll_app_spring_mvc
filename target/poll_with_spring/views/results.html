@@ -8,21 +8,18 @@
 </head>
 <body>
 <h2 class="title" th:text="#{pollResult}" > Poll result</h2>
+<form action="/logout" method="post">
+    <input class="creat" type="submit" th:value="#{logout}"/>
+</form>
 <img src="https://instituteofpsychology.ie/wp-content/uploads/2021/01/Institute-of-Psychology-Ireland-IoP-Educational-Psychological-Assessment.png"
      alt="Psychology">
 
 <div th:if="${poll_error} != null">
-    <p class="description" th:text="${poll_error} + ${poll_result.getPoll_result()}"> <br>
-       </p>
-    <form action="/logout" method="post">
-        <input class="creat" type="submit" th:value="#{logout}"/>
-    </form>
+    <p class="description" th:text="${poll_error} + ${poll_result.getPoll_result()}"> <br> </p>
 </div>
 
  <p class="description" th:text="'Result-' + ${userResult.getPoll_result()}"> <p/>
 
-<form action="/logout" method="post">
-    <input class="creat" type="submit" th:value="#{logout}"/>
-</form>
+
 </body>
 </html>

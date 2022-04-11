@@ -1,6 +1,5 @@
 package am.epam.pollWebApp.dao;
 
-
 import am.epam.pollWebApp.connection.DBConnectionProvider;
 import am.epam.pollWebApp.model.Answer;
 import org.springframework.stereotype.Component;
@@ -40,16 +39,15 @@ public class AnswerDAOImpl implements AnswerDAO {
         try {
             String query = "SELECT * FROM answer WHERE id=?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setLong(1,id);
+            preparedStatement.setLong(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()){
+            while (resultSet.next()) {
 
                 answer.setWeight(resultSet.getInt("weight"));
             }
         } catch (SQLException e) {
             throw new RuntimeException("Something is went wrong in getById method");
         }
-
         return answer;
     }
 
@@ -59,9 +57,9 @@ public class AnswerDAOImpl implements AnswerDAO {
         try {
             String query = "SELECT * FROM question INNER JOIN answer ON question.quest_id=answer.question_id WHERE question_id=?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setLong(1,questionId);
+            preparedStatement.setLong(1, questionId);
             ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 Answer answer1 = new Answer();
                 answer1.setId(resultSet.getLong("id"));
                 answer1.setText(resultSet.getString("ans_text"));

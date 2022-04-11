@@ -5,30 +5,27 @@ import am.epam.pollWebApp.dao.ResultDAO;
 import am.epam.pollWebApp.dao.UserDAO;
 import am.epam.pollWebApp.model.Result;
 import am.epam.pollWebApp.model.Users;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.concurrent.TimeUnit;
 
 @Controller
 @SessionAttributes("user")
 public class ResultsController {
-    List<Long> list = new ArrayList();
     AnswerDAO answerDAO;
     ResultDAO resultDAO;
     UserDAO userDAO;
-    long sum = 0;
+
+    private Logger logger = LoggerFactory.getLogger(ResultsController.class);
 
     @Autowired
     public ResultsController(AnswerDAO answerDAO, ResultDAO resultDAO, UserDAO userDAO) {
@@ -38,13 +35,15 @@ public class ResultsController {
     }
 
     @GetMapping("/results")
-    public String results(@ModelAttribute("user") Users user, HttpServletRequest req, Model model) throws ParseException {
+    public String results(@ModelAttribute("user") Users user, HttpServletRequest req, Model model) {
 
         String[] questionIds = req.getParameterValues("questionId");
+        long sum = 0;
         for (String questionId : questionIds) {
             String parameter = req.getParameter("marked" + questionId);
             if (parameter == null) {
                 model.addAttribute("error", "You have not filled in all the fields, try again");
+                logger.error("The user have not filled in all the fields");
                 return "error";
             } else {
                 long value = Long.parseLong(parameter);
@@ -52,22 +51,19 @@ public class ResultsController {
             }
         }
 
-        String email = user.getEmail();
-        String password = user.getPassword();
         int id = user.getId();
         Result expByScore = resultDAO.findByScore(1, sum);
+        String explanation = expByScore.getExplanation();
 
         Date now = Date.valueOf(LocalDate.now());
 
-        userDAO.getByEmailAndPass(email, password);
         userDAO.updateDate(id, now);
-
-        String explanation = expByScore.getExplanation();
         userDAO.updateResult(id, explanation);
+
         Users userResult = userDAO.pollResultById(id);
 
         model.addAttribute("userResult", userResult);
+        logger.info("Everything was done successfully, user's data was added to the db and displayed to the user");
         return "results";
-
     }
 }

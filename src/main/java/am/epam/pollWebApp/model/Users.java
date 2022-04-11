@@ -1,7 +1,6 @@
 package am.epam.pollWebApp.model;
 
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;

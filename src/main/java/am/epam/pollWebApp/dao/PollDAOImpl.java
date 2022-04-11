@@ -1,6 +1,5 @@
 package am.epam.pollWebApp.dao;
 
-
 import am.epam.pollWebApp.connection.DBConnectionProvider;
 import am.epam.pollWebApp.model.Poll;
 import org.springframework.stereotype.Component;

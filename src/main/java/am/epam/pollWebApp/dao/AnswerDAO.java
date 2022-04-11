@@ -1,6 +1,5 @@
 package am.epam.pollWebApp.dao;
 
-
 import am.epam.pollWebApp.model.Answer;
 
 import java.util.List;
